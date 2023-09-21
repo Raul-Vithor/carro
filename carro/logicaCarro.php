@@ -9,10 +9,11 @@ if(isset($_POST['carroNome']) && isset($_POST['carroMarca']) && isset($_POST['ca
     $carMod = $_POST['carroModelo'];
     $carAno = $_POST['carroAno'];
 
-    $carNomInfo = [];
-    $carMarInfo = [];
-    $carModInfo = [];
-    $carAnoInfo = [];
+    $carNomInfo = Array();
+    $carMarInfo = Array();
+    $carModInfo = Array();
+    $carAnoInfo = Array();
+    
 //3 inserindo dados na sessão
     if(isset($_SESSION['carNomInfo']) && isset($_SESSION['carMarInfo']) && isset($_SESSION['carModInfo']) && isset($_SESSION['carAnoInfo'])){
         $carNomInfo = $_SESSION['carNomInfo'];
@@ -29,8 +30,7 @@ if(isset($_POST['carroNome']) && isset($_POST['carroMarca']) && isset($_POST['ca
     $_SESSION['carModInfo'] = $carModInfo;
     array_push($carAnoInfo, $carAno);
     $_SESSION['carAnoInfo'] = $carAnoInfo;
-    header('location: index.php');
+    header('location: mostraCarro.php');
 
-    
 }
 ?>
