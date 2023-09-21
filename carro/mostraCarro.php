@@ -1,38 +1,38 @@
-<?php
-    require "carro.php";
-    require "criaCarro.php";
-
-    $passat = new Carro();
-
-    $passat -> setNome("Passat");
-    $passat -> setMarca("Wolksvagen");
-    $passat -> setModelo("Sedan");
-    $passat -> setAno(1973);
-    
-    
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monta Carro</title>
-</head>
+<?php session_start()?>
+<html>
 <body>
-    <table border="4">
+    <table border="1">
         <tr>
             <th>Nome</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Ano</th>
         </tr>
-        <tr>
-            <td><?=$passat -> getNome()?></td>
-            <td><?=$passat -> getMarca()?></td>
-            <td><?=$passat -> getModelo()?></td>
-            <td><?=$passat -> getAno()?></td>
+        
+            <?php
+                if(isset($_SESSION['carNomInfo']) && isset($_SESSION['carMarInfo']) && isset($_SESSION['carModInfo']) && isset($_SESSION['carAnoInfo']))
+                    $carNomInfo = $_SESSION['carNomInfo'];
+                    $carMarInfo = $_SESSION['carMarInfo'];
+                    $carModInfo = $_SESSION['carModInfo'];
+                    $carAnoInfo = $_SESSION['carAnoInfo'];
+
+                    for($i = 0; $i < count($carNomInfo); $i++){
+
+            ?>        
+                
+            
+        <tr>    
+            <td><?=$carNomInfo[$i]?></td>
+            <td><?=$carMarInfo[$i]?></td>
+            <td><?=$carModInfo[$i]?></td>
+            <td><?=$carAnoInfo[$i]?></td>
         </tr>
+    <?php
+        }
+    ?>    
     </table>
+
+    <a href="index.php">Retorna</a>
+    <a href="sair.php">Sair</a>
 </body>
 </html>
