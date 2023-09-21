@@ -1,9 +1,9 @@
 <ul>
     <li>
-        <a href="criaCarro.php">Início</a>
+        <a href="index.php">Início</a>
     </li>
     <li>
-        <a href="index.php">Carros</a>
+        <a href="mostraCarro.php">Carros</a>
     </li>
     <li>
         <a href="sair.php">Sair</a>
